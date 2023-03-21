@@ -58,6 +58,7 @@ Assert.assertEquals(loginPage.wrongPassword.getText(),string);
     @Then("user should see warning message if username or password is empty warning message")
     public void userShouldSeeWarningMessageIfUsernameOrPasswordIsEmpty() {
         if (loginPage.userName.getAttribute("value").isEmpty()){
+            BrowserUtils.waitFor(3);
             Assert.assertEquals(loginPage.userName.getAttribute("validationMessaage"),"Please fill out this field.");
         }if (loginPage.inputPassword.getAttribute("value").isEmpty()){
             BrowserUtils.waitFor(3);
@@ -100,11 +101,11 @@ Assert.assertEquals(loginPage.wrongPassword.getText(),string);
     @Then("user should see the Reset password button")
     public void userShouldSeeThe() {
         String expectedText="Reset password";
-        String actualText=loginPage.resetPassword.getText();
+        String actualText=loginPage.resetPassword.getAttribute("value");
         System.out.println("expectedText = " + expectedText);
         System.out.println("actualText = " + actualText);
-        BrowserUtils.waitFor(5);
-        Assert.assertEquals(actualText,expectedText);
+        BrowserUtils.waitForVisibility(loginPage.resetPassword,3);
+        Assert.assertEquals(expectedText,actualText);
 
     }
 
