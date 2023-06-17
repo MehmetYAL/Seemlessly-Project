@@ -13,8 +13,8 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "net/seamlessly/step_definitions",
-        dryRun = true,
-        tags = "@SEAMLES10-381" //tags here and tags in login fature than that test will run
+        dryRun = false,
+        tags = "" //tags here and tags in login fature than that test will run
 
         //dryRun = true --> do not run my step_definitions, but only check if any step is missing snippet
         //dryRun = false --> this will turn off dryRun, and our code will run as expected.
